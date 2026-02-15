@@ -127,7 +127,7 @@ For the Web UI to communicate with the API:
 ```json
 {
   "ApiSettings": {
-    "BaseUrl": "https://localhost:5001"
+    "BaseUrl": "https://localhost:7113"
   }
 }
 ```
@@ -166,7 +166,7 @@ dotnet run
 
 Wait until you see output like:
 ```
-Now listening on: https://localhost:5001
+Now listening on: https://localhost:7113
 ```
 
 **Terminal 2 - Start the Web UI:**
@@ -177,7 +177,7 @@ dotnet run
 
 Wait until you see output like:
 ```
-Now listening on: https://localhost:5002
+Now listening on: https://localhost:7190
 ```
 
 ### Option 2: Run API Only
@@ -189,7 +189,7 @@ cd src/UserManagement.Api
 dotnet run
 ```
 
-Access the Swagger documentation at: **`https://localhost:5001/swagger`**
+Access the Swagger documentation at: **`https://localhost:7113/swagger`**
 
 ### Option 3: Run Web UI Only
 
@@ -200,7 +200,7 @@ cd src/UserManagement.Web
 dotnet run
 ```
 
-Browse to: **`https://localhost:5002`**
+Browse to: **`https://localhost:7190`**
 
 **Note:** The Web UI requires the API to be running. It will show errors if it cannot connect to the API.
 
@@ -208,8 +208,8 @@ Browse to: **`https://localhost:5002`**
 
 Once running:
 
-- **API Swagger Documentation:** `https://localhost:5001/swagger`
-- **Web UI:** `https://localhost:5002`
+- **API Swagger Documentation:** `https://localhost:7113/swagger`
+- **Web UI:** `https://localhost:7190`
 
 **Port numbers may vary** - check the console output for actual URLs.
 
@@ -296,7 +296,7 @@ The test projects include:
 
 Once the API is running, access interactive documentation:
 
-**URL:** `https://localhost:5001/swagger`
+**URL:** `https://localhost:7113/swagger`
 
 The Swagger UI allows you to:
 - View all available endpoints
@@ -327,17 +327,17 @@ The Swagger UI allows you to:
 
 **Get All Users:**
 ```bash
-curl -X GET "https://localhost:5001/api/users" -H "accept: application/json"
+curl -X GET "https://localhost:7113/api/users" -H "accept: application/json"
 ```
 
 **Get User by ID:**
 ```bash
-curl -X GET "https://localhost:5001/api/users/1" -H "accept: application/json"
+curl -X GET "https://localhost:7113/api/users/1" -H "accept: application/json"
 ```
 
 **Create User:**
 ```bash
-curl -X POST "https://localhost:5001/api/users" \
+curl -X POST "https://localhost:7113/api/users" \
   -H "Content-Type: application/json" \
   -d '{
     "firstName": "John",
@@ -349,7 +349,7 @@ curl -X POST "https://localhost:5001/api/users" \
 
 **Update User:**
 ```bash
-curl -X PUT "https://localhost:5001/api/users/1" \
+curl -X PUT "https://localhost:7113/api/users/1" \
   -H "Content-Type: application/json" \
   -d '{
     "firstName": "John",
@@ -361,17 +361,17 @@ curl -X PUT "https://localhost:5001/api/users/1" \
 
 **Delete User:**
 ```bash
-curl -X DELETE "https://localhost:5001/api/users/1"
+curl -X DELETE "https://localhost:7113/api/users/1"
 ```
 
 **Get Total User Count:**
 ```bash
-curl -X GET "https://localhost:5001/api/users/count"
+curl -X GET "https://localhost:7113/api/users/count"
 ```
 
 **Get Users Per Group:**
 ```bash
-curl -X GET "https://localhost:5001/api/users/count-by-group"
+curl -X GET "https://localhost:7113/api/users/count-by-group"
 ```
 
 ### Response Formats
@@ -460,7 +460,7 @@ dotnet ef database update
 {
   "profiles": {
     "https": {
-      "applicationUrl": "https://localhost:7001;http://localhost:5001"
+      "applicationUrl": "https://localhost:7113;http://localhost:5168"
     }
   }
 }
@@ -471,7 +471,7 @@ dotnet ef database update
 {
   "profiles": {
     "https": {
-      "applicationUrl": "https://localhost:7002;http://localhost:5002"
+      "applicationUrl": "https://localhost:7190;http://localhost:5022"
     }
   }
 }
@@ -489,21 +489,21 @@ After changing ports, update the API URL in Web's `appsettings.json`.
 
 1. Verify the API is running:
    ```bash
-   curl https://localhost:5001/api/users
+   curl https://localhost:7113/api/users
    ```
 
 2. Check the API URL in `src/UserManagement.Web/appsettings.json`:
    ```json
    {
      "ApiSettings": {
-       "BaseUrl": "https://localhost:5001"
+       "BaseUrl": "https://localhost:7113"
      }
    }
    ```
 
 3. Ensure firewall isn't blocking local connections
 
-4. Try using `http://localhost:5001` instead of `https://localhost:5001`
+4. Try using `http://localhost:7113` instead of `https://localhost:7113`
 
 ---
 

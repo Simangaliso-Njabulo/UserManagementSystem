@@ -37,6 +37,26 @@ dotnet run
 
 For detailed setup instructions, see [Running Locally](docs/RUNNING_LOCALLY.md).
 
+## Running Tests
+
+The solution includes comprehensive unit and integration tests.
+
+```bash
+# Run all tests
+dotnet test
+
+# Run only unit tests
+dotnet test tests/UserManagement.UnitTests
+
+# Run only integration tests
+dotnet test tests/UserManagement.IntegrationTests
+```
+
+**Test Coverage:**
+- 8 unit tests for service layer business logic
+- 13 integration tests for API endpoints
+- Tests verify CRUD operations, error handling, and edge cases
+
 ## Technology Stack
 
 - **Framework:** ASP.NET Core (.NET 8)
@@ -87,7 +107,7 @@ For a detailed breakdown, see [Solution Structure](docs/SOLUTION_STRUCTURE.md).
 
 Once running, access the interactive Swagger documentation at:
 
-**`https://localhost:5001/swagger`**
+**`https://localhost:7113/swagger`**
 
 ## Requirements Met
 
